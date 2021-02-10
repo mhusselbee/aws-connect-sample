@@ -15,7 +15,12 @@ exports.putItem = async (event: any) => {
 
   const params = {
     TableName: tableName,
-    Item: { id, number, vanities: topFiveVanities },
+    Item: {
+      id,
+      number,
+      vanities: topFiveVanities,
+      callInitiatedAt: new Date(),
+    },
   };
 
   await docClient.put(params).promise();
