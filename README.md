@@ -4,7 +4,7 @@
 
  - `nvm use && npm install`
  - `npm run stage` <-- Chained npm script command that will build and create a deployment zip for lambdas and synthesize the CF template.
- - `npm run deploy:app` 
+ - `npm run deploy:app`
 
 ## Configuring the Connect Instance 
 
