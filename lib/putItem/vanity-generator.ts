@@ -12,11 +12,31 @@ const letterReference: { [key: string]: string[] } = {
   "0": ["O", "O", "O", "O"],
 };
 
+const vowels = ["A,E,I,O,U"];
+
 // Helper function to randomize selection of the letter related to the digit
 const getRandomIntBetween = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+// A "Good" Vanity is a 4 letter word that does not start with a vowel
+// This is very arbitrary and probably not the best line of reasoning.
+// Given more time, would expand this to include 7 letter words and
+// Examples: 1-800-435-JARS, 1-800-435-RATE
+export const isGoodVanity = (vanity: string) => {
+  try {
+    console.assert(vanity.length === 4);
+    const firstLetter = vanity.split("")[0];
+    if (!vowels.includes(firstLetter)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    return false;
+  }
 };
 
 // Returns a sequence of letters that were randomly selected from the possible letter combinations.
